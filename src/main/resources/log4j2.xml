@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Properties>
+		<Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread]
+			%-5level%logger{36}.%M\(%line\) - %msg%n</Property>
+	</Properties>
+	<Appenders>
+		<Console name="ConsoleAppender" target="SYSTEM_OUT"
+			follow="true">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+		</Console>
+		<RollingFile name="File-DEBUG"
+			fileName="/app/uploads/logs/superannuation/sa-debug.log"
+			filePattern="/app/uploads/logs/superannuation/sa-debug-%d{MM-dd-yyyy}.log.gz"
+			ignoreExceptions="false">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<TimeBasedTriggeringPolicy />
+			<Filters>
+				<ThresholdFilter level="INFO" onMatch="DENY"
+					onMismatch="NEUTRAL" />
+				<ThresholdFilter level="DEBUG" onMatch="ACCEPT"
+					onMismatch="DENY" />
+			</Filters>
+		</RollingFile>
+		<RollingFile name="File-INFO"
+			fileName="/app/uploads/logs/superannuation/sa-info.log"
+			filePattern="/app/uploads/logs/superannuation/sa-info-%d{MM-dd-yyyy}.log.gz"
+			ignoreExceptions="false">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<TimeBasedTriggeringPolicy />
+			<Filters>
+				<ThresholdFilter level="ERROR" onMatch="DENY"
+					onMismatch="NEUTRAL" />
+				<ThresholdFilter level="WARN" onMatch="ACCEPT"
+					onMismatch="NEUTRAL" />
+				<ThresholdFilter level="INFO" onMatch="ACCEPT"
+					onMismatch="DENY" />
+			</Filters>
+		</RollingFile>
+		<RollingFile name="File-ERROR"
+			fileName="/app/uploads/logs/superannuation/sa-error.log"
+			filePattern="/app/uploads/logs/superannuation/sa-error-%d{MM-dd-yyyy}.log.gz"
+			ignoreExceptions="false">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<TimeBasedTriggeringPolicy />
+			<ThresholdFilter level="ERROR" onMatch="ACCEPT"
+				onMismatch="DENY" />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="debug">
+			<AppenderRef ref="ConsoleAppender" />
+			<AppenderRef ref="File-INFO" />
+			<AppenderRef ref="File-ERROR" />
+			<AppenderRef ref="File-DEBUG" />
+		</Root>
+	</Loggers>
+</Configuration>
