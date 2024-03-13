@@ -1,0 +1,97 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>Loan_Application__c</name>
+    <label>Loan Application</label>
+    <pluralLabel>Loan Applications</pluralLabel>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>false</default>
+                    <label>Submitted</label>
+                    <closed>false</closed>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Loan_Approved__c</fullName>
+        <externalId>false</externalId>
+        <label>Loan Approved</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Approved_Loan_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Approved Loan Amount</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Interest_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Interest Rate</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Repayment_Period__c</fullName>
+        <externalId>false</externalId>
+        <label>Repayment Period</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>12 months</fullName>
+                    <default>false</default>
+                    <label>12 months</label>
+                    <closed>false</closed>
+                </value>
+                <value>
+                    <fullName>24 months</fullName>
+                    <default>false</default>
+                    <label>24 months</label>
+                    <closed>false</closed>
+                </value>
+                <value>
+                    <fullName>36 months</fullName>
+                    <default>false</default>
+                    <label>36 months</label>
+                    <closed>false</closed>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Additional_Requirements__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Requirements</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Error_Message__c</fullName>
+        <externalId>false</externalId>
+        <label>Error Message</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+    </fields>
+</CustomObject>
