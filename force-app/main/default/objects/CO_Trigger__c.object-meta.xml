@@ -1,0 +1,61 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <name>Loan_Application__c</name>
+    <label>Loan Application</label>
+    <pluralLabel>Loan Applications</pluralLabel>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ReadWrite</sharingModel>
+    <nameField>
+        <label>Loan Application Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <fields>
+        <fullName>Applicant__c</fullName>
+        <label>Applicant</label>
+        <type>Lookup</type>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Applicant</relationshipLabel>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Pre_Qualification_Outcome__c</fullName>
+        <label>Pre-Qualification Outcome</label>
+        <type>Picklist</type>
+        <picklist>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </picklistValues>
+        </picklist>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Loan_Amount__c</fullName>
+        <label>Loan Amount</label>
+        <type>Currency</type>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Interest_Rate_Range__c</fullName>
+        <label>Interest Rate Range</label>
+        <type>Text</type>
+        <required>true</required>
+    </fields>
+    <fields>
+        <fullName>Pre_Qualification_Explanation__c</fullName>
+        <label>Pre-Qualification Explanation</label>
+        <type>LongTextArea</type>
+    </fields>
+    <validationRules>
+        <fullName>Loan_Application_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISBLANK(Applicant__c)</errorConditionFormula>
+        <errorDisplayField>Applicant__c</errorDisplayField>
+        <errorMessage>A loan application must have an applicant.</errorMessage>
+    </validationRules>
+</CustomObject>
